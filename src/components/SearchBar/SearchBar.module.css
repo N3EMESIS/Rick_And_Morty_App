@@ -1,0 +1,72 @@
+.divMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #00e1ff;
+    box-shadow: 5px 5px 5px #1100ff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    gap: 0;
+  }
+
+  .divLeft{
+    display: flex;
+    align-items: center;
+  }
+
+  .divRight {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  
+  .inputClass {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(0, 0, 0, 0.1);
+    border: 2px solid #00e1ff;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #00ff73;
+    color: #00e1ff;
+    width: 200px;
+  }
+  
+  .inputClass input[type="text"]{
+    width: 100%;
+  }
+  
+  .inputClass:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px #00ff73;
+    border: 2px solid #00e1ff;
+  }
+  
+  .buttonClass {
+    border-radius: 15px;
+    border: 2px solid #00e1ff;
+    box-shadow: 0 0 5px #00ff73;
+    background-color: rgb(0, 0, 0, 0.1);
+    color: #ff00dd;
+    margin-right: 10px;
+  }
+  
+  .buttonClass:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px #00ff73;
+    border: 2px solid #00e1ff;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #ff00dd;
+    margin-left: 5px;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  .link--active {
+    font-weight: bold;
+  }
