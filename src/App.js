@@ -1,12 +1,13 @@
 import './App.css'
-//import {Switch, Route} from "react-router-dom";
 import Cards from './components/Cards/Cards.jsx'
 import React, { useState } from "react";
 import Nav from "./components/Nav/Nav";
-//import About from "./components/About/About";
-//import Detail from "./components/Detail/Detail";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
 const URL_BASE = "https://rickandmortyapi.com/api";
 const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8";
+
 
 function App() {
   // Definir el estado characters utilizando useState
@@ -57,12 +58,16 @@ function App() {
 
   return (
     <div className="App" style={{ padding: "25px" }}>
-      <div>
-        <Nav onSearch={onSearch} handleRandom={handleRandom} characters={characters} />
-      </div>
-      <hr />
-        <Cards characters={characters} onClose={onClose} />
-    </div>
+        <div>
+          <Nav onSearch={onSearch} handleRandom={handleRandom} characters={characters} />
+        </div>
+        <hr />
+        <Routes>
+          <Route path="/" element={<Cards characters={characters} onClose={onClose} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:detailId" element={<Detail />} />
+        </Routes>
+        </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {FaRandom} from "react-icons/fa";
 import styles from "./SearchBar.module.css";
-
+import { NavLink } from "react-router-dom";
 class SearchBarClass extends Component {
   constructor(props) {
     super(props);
@@ -26,10 +26,10 @@ class SearchBarClass extends Component {
   render() {
     return (
       <div className={styles.divMain}>
-        {/* <div className={styles.divLeft}>
+        <div className={styles.divLeft}>
           <NavLink exact to="/" className={styles.link} activeClassName={styles["link--active"]}>Home</NavLink>
           <NavLink to="/about" className={styles.link} activeClassName={styles["link--active"]}>About</NavLink>
-        </div> */}
+        </div>
         <div className={styles.divRight}>
           <input
             className={styles.inputClass}
