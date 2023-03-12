@@ -27,7 +27,7 @@ function Detail() {
   
     return (
       <div className={style.container}>
-        <Link to="/" className={style.link} ><FaAngleDoubleLeft/></Link>
+        <Link to="/home" className={style.link} ><FaAngleDoubleLeft/></Link>
         <div className={style.details}>
           <img className={style.image} src={character.image} alt={character.name} />
         </div>
