@@ -64,7 +64,7 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const username = 'idiartlucas@gmail.com';
-  const password = 'Nemesis897';
+  const password = 'hola12345';
 
   function login(userData) {
     if (userData.username === username && userData.password === password) {
