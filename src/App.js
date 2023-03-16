@@ -6,6 +6,7 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites";
 const URL_BASE = "https://rickandmortyapi.com/api";
 const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8";
 
@@ -97,6 +98,7 @@ function App() {
           <Route path="/" element={<Form login={login} />} />
           <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
           <Route path="/about" element={<About />} />
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="/detail/:detailId" element={<Detail />} />
         </Routes>
     </div>

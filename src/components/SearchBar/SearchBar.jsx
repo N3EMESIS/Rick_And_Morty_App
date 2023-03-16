@@ -30,6 +30,7 @@ class SearchBarClass extends Component {
           <NavLink exact to="/home" className={styles.link} activeClassName={styles["link--active"]}>Home</NavLink>
           <NavLink to="/about" className={styles.link} activeClassName={styles["link--active"]}>About</NavLink>
           <NavLink to="/" className={styles.link} >Logout</NavLink>
+          <NavLink to="/favorites" className={styles.link}>Favorites</NavLink>
         </div>
         <div className={styles.divRight}>
           <input
