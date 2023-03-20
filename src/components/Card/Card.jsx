@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"
-import { addFavCharacter, deleteFavCharacter } from "../Redux/Actions/actions";
+import { addFavCharacter, deleteFavCharacter } from "../../Redux/Actions/actions";
 class Card extends Component {
   constructor(props) {
     super(props);
