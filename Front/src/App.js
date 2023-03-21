@@ -7,7 +7,8 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
-const URL_BASE = "https://rickandmortyapi.com/api";
+// ! const URL_BASE = "https://rickandmortyapi.com/api"; SERVER RICK AND MORTY
+const URL_BASE = "http://localhost:3001/rickandmorty"; // * SERVER MIO
 const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8";
 
 
