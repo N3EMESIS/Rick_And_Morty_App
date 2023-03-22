@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import style from "./Detail.module.css";
 import { FaAngleDoubleLeft } from "react-icons/fa";
-const URL_BASE = "https://rickandmortyapi.com/api"
-const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8"
+const URL_BASE = "http://localhost:3001/rickandmorty"
+// const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8"
 
 function Detail() {
     const { detailId } = useParams();
     const [character, setCharacter] = useState({});
   
     useEffect(() => {
-      fetch(`${URL_BASE}/character/${detailId}?key=${API_KEY}`)
+      fetch(`${URL_BASE}/detail/${detailId}`)
         .then((response) => response.json())
         .then((char) => {
           if (char.name) {

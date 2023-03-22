@@ -25,7 +25,7 @@ function App() {
       return;
     }
 
-    fetch(`${URL_BASE}/character/${character}`)
+    fetch(`${URL_BASE}/detail/${character}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
