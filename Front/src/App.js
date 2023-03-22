@@ -9,7 +9,7 @@ import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 // ! const URL_BASE = "https://rickandmortyapi.com/api"; SERVER RICK AND MORTY
 const URL_BASE = "http://localhost:3001/rickandmorty"; // * SERVER MIO
-const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8";
+// const API_KEY = "ae548ca5efd4.e18bd88c702829bbd7f8"; `?key=${API_KEY}`
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
       return;
     }
 
-    fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
+    fetch(`${URL_BASE}/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
@@ -43,9 +43,9 @@ function App() {
   //********************************************************************** Personaje random ***************************************************************//
 
   function handleRandom() {
-    const randomId = Math.floor(Math.random() * 826) + 1;
-
-    fetch(`${URL_BASE}/character/${randomId}?key=${API_KEY}`)
+    const randomId = Math.floor(Math.random() * 4) + 1;
+// ! const randomId = Math.floor(Math.random() * 826) + 1;
+    fetch(`${URL_BASE}/character/${randomId}`)
       .then((response) => response.json())
       .then((data) => {
         // Controlar que no se puedan agregar personajes repetidos

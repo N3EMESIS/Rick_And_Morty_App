@@ -33,12 +33,12 @@ function Detail() {
         </div>
         <div className={style.info}>
             <h2 className={style.h2}>{character.name}</h2>
-            <p className={style.p}>Status: <span className={style.span}>{character.status}</span></p>
-            <p className={style.p}>Species: <span className={style.span}>{character.species}</span></p>
-            <p className={style.p}>Type: <span className={style.span}>{character.type || "Unknown"}</span></p>
-            <p className={style.p}>Gender: <span className={style.span}>{character.gender}</span></p>
-            <p className={style.p}>Origin: <span className={style.span}>{character.origin && character.origin.name}</span></p>
-            <p className={style.p}>Location: <span className={style.span}>{character.location && character.location.name}</span></p>
+            <p className={style.p}>Status:<span className={style.span}> {character.status}</span></p>
+            <p className={style.p}>Species:<span className={style.span}> {character.species}</span></p>
+            <p className={style.p}>Type:<span className={style.span}> {character.type || "Unknown"}</span></p>
+            <p className={style.p}>Gender:<span className={style.span}> {character.gender}</span></p>
+            <p className={style.p}>Origin:<span className={style.span}> {character.origin && character.origin.name}</span></p>
+            <p className={style.p}>Location:<span className={style.span}> {character.location && character.location.name}</span></p>
         </div>
       </div>
     );

@@ -32,10 +32,14 @@
 
 .p {
     color: #00ffaa;
+    display: flex;
+    flex-direction: row;
 }
 
 .span {
     color: #04ffff;
+    margin: auto;
+    white-space: nowrap;
 }
 
 .link {
@@ -56,5 +60,5 @@
     margin: 5px;
     padding: 5px;
     border-radius: 5%;
-    object-fit: cover;
+    max-width: 95%;
 }
