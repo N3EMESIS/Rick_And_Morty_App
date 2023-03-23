@@ -32,9 +32,9 @@ const server = http.createServer((req, res) => {
     const { url } = req;
 
     if(url.includes("onsearch")){
-        const characterid = url.split("/").at(-1);
+        const id = url.split("/").at(-1);
 
-        getCharById(res, characterid);
+        getCharById(res, id);
     }
 
     if(url.includes("detail")){
