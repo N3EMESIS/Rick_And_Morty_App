@@ -1,27 +1,38 @@
 require("dotenv").config();
-const http = require("http");
-const getCharById = require("./controllers/getCharById");
-const getCharDetail = require("./controllers/getCharDetail");
+const express = require("express");
+const server = express();
+const PORT = 3001;
+const router = require("./routes/index");
 
-const server = http.createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+server.use(express.json());
 
-    const { url } = req;
+server.use("/", router);
 
-    if(url.includes("onsearch")){
-        const id = url.split("/").at(-1);
+server.listen(PORT, () => {console.log("Server raised in port " + PORT)});
 
-        getCharById(res, id);
-    }
+// const http = require("http");
+// const getCharById = require("./controllers/getCharById");
+// const getCharDetail = require("./controllers/getCharDetail");
 
-    if(url.includes("detail")){
-        const characterId = url.split("/").pop();
+// const server = http.createServer((req, res) => {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
 
-        getCharDetail(res, characterId);
-    }
-})
-server.listen(3001, "localhost", () => {
-    console.log("Server listening on port 3001")
-});
+//     const { url } = req;
+
+//     if(url.includes("onsearch")){
+//         const id = url.split("/").at(-1);
+
+//         getCharById(res, id);
+//     }
+
+//     if(url.includes("detail")){
+//         const characterId = url.split("/").pop();
+
+//         getCharDetail(res, characterId);
+//     }
+// })
+// server.listen(3001, "localhost", () => {
+//     console.log("Server listening on port 3001")
+// });
 
 module.exports = server;
