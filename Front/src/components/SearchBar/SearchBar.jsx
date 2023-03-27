@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {FaRandom} from "react-icons/fa";
 import styles from "./SearchBar.module.css";
 import { NavLink } from "react-router-dom";
+
 class SearchBarClass extends Component {
   constructor(props) {
     super(props);

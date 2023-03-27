@@ -3,12 +3,16 @@ import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 import { addFavCharacter, deleteFavCharacter } from "../../Redux/Actions/actions";
+import { ArrowLeft, ArrowRight } from "./Arrows";
+
 class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showDetails: false,
-      isFav: false
+      isFav: false,
+      currentPage: 1,
+      totalPages: 1000
     };
   }
 
@@ -37,6 +41,22 @@ class Card extends Component {
       addFavCharacter(this.props);
     }
   }
+
+  //*********************************************** ARROW-LEFT && ARROW-RIGHT *****************************************************/
+
+  handleArrowLeft = () => {
+    const { currentPage } = this.state;
+    if(currentPage > 1){
+      this.setState({ currentPage: currentPage - 1});
+    }
+  };
+
+  handleArrowRight = () => {
+    const { currentPage, totalPages } = this.state;
+    if(currentPage < totalPages ){
+      this.setState({ currentPage: currentPage + 1});
+    }
+  };
 
   //*************************************************** USE EFFECT DE UNA CLASE **************************************************/
 
@@ -92,6 +112,10 @@ class Card extends Component {
             <h2 className={styles.subTitle}>Género: {gender}</h2>
           </div>
         )}
+        <div className={styles.arrowsContainer}>
+          <ArrowLeft handleClick={this.handleArrowLeft} />
+          <ArrowRight handleClick={this.handleArrowRight} />
+        </div>
       </div>
     );
   }
