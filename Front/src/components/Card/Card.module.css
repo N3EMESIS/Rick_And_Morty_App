@@ -76,7 +76,7 @@
 
 /************************************* Arrows *********************************************/
 
-.arrowsContainer{
+.arrow{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -88,12 +88,4 @@
   line-height: 50px;
   font-size: 30px;
   cursor: pointer;
-}
-
-.arrow-left{
-  left: 20px;
-}
-
-.arror-right{
-  right: 20px;
 }

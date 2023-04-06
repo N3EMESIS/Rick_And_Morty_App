@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 const URL_BASE = "http://localhost:3001/rickandmorty"; // * SERVER MIO
 
@@ -33,6 +34,7 @@ function App() {
           window.alert("No hay personajes con ese ID");
         }
       });
+      
   }
 
   function onClose(id) {
@@ -42,9 +44,9 @@ function App() {
   //********************************************************************** Personaje random ***************************************************************//
 
   function handleRandom() {
-    const randomId = Math.floor(Math.random() * 4) + 1;
+    const randomId = Math.floor(Math.random() * 826) + 1;
 // ! const randomId = Math.floor(Math.random() * 826) + 1;
-    fetch(`${URL_BASE}/character/${randomId}`)
+    fetch(`${URL_BASE}/onsearch/${randomId}`)
       .then((response) => response.json())
       .then((data) => {
         // Controlar que no se puedan agregar personajes repetidos
@@ -65,13 +67,20 @@ function App() {
   const location = useLocation();
   const username = 'idiartlucas@gmail.com';
   const password = 'hola12345';
+  const [isLoading, setIsLoading] = useState(false);
+
+  function onLoaded() {
+    setIsLoading(false);
+  }
 
   function login(userData) {
+    setIsLoading(true);
     if (userData.username === username && userData.password === password) {
       setAccess(true);
-      navigate('/home');
+      setTimeout(() => navigate('/home'), 2000);
     } else {
       alert('Usuario o contraseña incorrectos');
+      setIsLoading(false);
     }
   }
 
@@ -92,15 +101,21 @@ function App() {
 
   return (
     <div className="App" style={{ padding: "25px" }}>
-        {showNav && <Nav onSearch={onSearch} handleRandom={handleRandom} characters={characters} logout={logout} />}
-        <hr />
-        <Routes>
-          <Route path="/" element={<Form login={login} />} />
-          <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/detail/:detailId" element={<Detail />} />
-        </Routes>
+      {isLoading ? (
+        <ProgressBar onLoaded={onLoaded} /> 
+      ) : (
+        <>
+          {showNav && <Nav onSearch={onSearch} handleRandom={handleRandom} characters={characters} logout={logout} />}
+          <hr />
+          <Routes>
+            <Route path="/" element={<Form login={login} />} />
+            <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/detail/:detailId" element={<Detail />} />
+          </Routes>
+        </>
+      )}
     </div>
   );
 }

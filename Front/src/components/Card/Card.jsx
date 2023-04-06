@@ -3,7 +3,34 @@ import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 import { addFavCharacter, deleteFavCharacter } from "../../Redux/Actions/actions";
-import { ArrowLeft, ArrowRight } from "./Arrows";
+
+function ArrowLeft (props) {
+  return (
+    <div className={styles.arrow} onClick={props.onClick}>{"<"}</div>
+  );
+};
+
+function ArrowRight (props) {
+  return (
+    <div className={styles.arrow} onClick={props.onClick}>{">"}</div>
+  );
+};
+
+function Pagination (props) {
+  const { currentPage, totalPages, handleArrowLeft, handleArrowRight } = props;
+  
+  return (
+    <div className={styles.pagination}>
+      {currentPage > 1 && (
+        <ArrowLeft onClick={handleArrowLeft} />
+      )}
+      <span>{currentPage} / {totalPages}</span>
+      {currentPage < totalPages && (
+        <ArrowRight onClick={handleArrowRight} />
+      )}
+    </div>
+  )
+};
 
 class Card extends Component {
   constructor(props) {
@@ -12,7 +39,7 @@ class Card extends Component {
       showDetails: false,
       isFav: false,
       currentPage: 1,
-      totalPages: 1000
+      totalPages: 1
     };
   }
 
@@ -112,10 +139,12 @@ class Card extends Component {
             <h2 className={styles.subTitle}>Género: {gender}</h2>
           </div>
         )}
-        <div className={styles.arrowsContainer}>
-          <ArrowLeft handleClick={this.handleArrowLeft} />
-          <ArrowRight handleClick={this.handleArrowRight} />
-        </div>
+        <Pagination 
+          currentPage={this.state.currentPage}
+          totalpages={this.state.totalPages}
+          handleArrowLeft={this.handleArrowLeft}
+          handleArrowRight={this.handleArrowRight}
+        />
       </div>
     );
   }
