@@ -4,42 +4,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 import { addFavCharacter, deleteFavCharacter } from "../../Redux/Actions/actions";
 
-function ArrowLeft (props) {
-  return (
-    <div className={styles.arrow} onClick={props.onClick}>{"<"}</div>
-  );
-};
-
-function ArrowRight (props) {
-  return (
-    <div className={styles.arrow} onClick={props.onClick}>{">"}</div>
-  );
-};
-
-function Pagination (props) {
-  const { currentPage, totalPages, handleArrowLeft, handleArrowRight } = props;
-  
-  return (
-    <div className={styles.pagination}>
-      {currentPage > 1 && (
-        <ArrowLeft onClick={handleArrowLeft} />
-      )}
-      <span>{currentPage} / {totalPages}</span>
-      {currentPage < totalPages && (
-        <ArrowRight onClick={handleArrowRight} />
-      )}
-    </div>
-  )
-};
-
 class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showDetails: false,
-      isFav: false,
-      currentPage: 1,
-      totalPages: 1
+      isFav: false
     };
   }
 
@@ -68,22 +38,6 @@ class Card extends Component {
       addFavCharacter(this.props);
     }
   }
-
-  //*********************************************** ARROW-LEFT && ARROW-RIGHT *****************************************************/
-
-  handleArrowLeft = () => {
-    const { currentPage } = this.state;
-    if(currentPage > 1){
-      this.setState({ currentPage: currentPage - 1});
-    }
-  };
-
-  handleArrowRight = () => {
-    const { currentPage, totalPages } = this.state;
-    if(currentPage < totalPages ){
-      this.setState({ currentPage: currentPage + 1});
-    }
-  };
 
   //*************************************************** USE EFFECT DE UNA CLASE **************************************************/
 
@@ -139,12 +93,6 @@ class Card extends Component {
             <h2 className={styles.subTitle}>Género: {gender}</h2>
           </div>
         )}
-        <Pagination 
-          currentPage={this.state.currentPage}
-          totalpages={this.state.totalPages}
-          handleArrowLeft={this.handleArrowLeft}
-          handleArrowRight={this.handleArrowRight}
-        />
       </div>
     );
   }

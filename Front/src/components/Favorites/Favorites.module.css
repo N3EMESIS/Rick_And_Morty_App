@@ -70,6 +70,7 @@
 
 .selectOrder {
   color:#ff00dd;
+  text-shadow: 1px 1px #000;
   margin: auto;
   padding: 5px;
   border: 2px solid #00e1ff;
@@ -81,6 +82,7 @@
 
 .selectFilter {
   color:#ff00dd;
+  text-shadow: 1px 1px #000;
   margin: auto;
   padding: 5px;
   border: 2px solid #00e1ff;
@@ -95,10 +97,12 @@
   background-image: none !important;
   border: 2px solid #00e1ff;
   box-shadow: 5px 5px 5px #1100ff;
+  text-shadow: 1px 1px #000;
 }
 
 .label {
   color:#ff00dd;
+  text-shadow: 1px 1px #000;
   margin: auto;
   padding: 5px;
 }

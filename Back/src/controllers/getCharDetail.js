@@ -2,12 +2,12 @@ const axios = require("axios");
 const { KEY, URL } = process.env;
 
 const getCharDetail = (req, res) => {
-    const { params } = req;
+    const { id } = req.params;
     axios
-        .get(`${URL}/character/${params.id}?key=${KEY}`)
+        .get(`${URL}/character/${id}?key=${KEY}`)
         .then(response => {
-            const { id, name, species, image, gender, origin } = response.data;
-            const character = { id, name, species, image, gender, origin };
+            const { id, name, species, image, gender, origin, location, status } = response.data;
+            const character = { id, name, species, image, gender, origin, location, status };
             res.status(200).json(character);
         })
         .catch(error => {

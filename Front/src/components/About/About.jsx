@@ -10,7 +10,7 @@ class About extends Component {
     return(
       <div className={style.divMain}>
         <h1 className={style.title}>About</h1>
-        <p>¡Hola! Soy Lucas Idiart, el creador de esta aplicación. Me gusta mucho Rick and Morty, así que decidí hacer esta pequeña app para mostrar algunos de mis personajes favoritos. Espero que la disfrutes tanto como yo disfruté haciéndola. <strong>¡Gracias por usarla!</strong></p>
+        <p className={style.p}>¡Hola! Soy Lucas Idiart, el creador de esta aplicación. Me gusta mucho Rick and Morty, así que decidí hacer esta pequeña app para mostrar algunos de mis personajes favoritos. Espero que la disfrutes tanto como yo disfruté haciéndola. <strong>¡Gracias por usarla!</strong></p>
         <span className={style.proyect}>Si quieren ver todos mis proyectos aquí les dejo el <a className={style.link} href="https://www.freecodecamp.org/espanol/Nemesis897">enlace</a></span>
       </div>
     )

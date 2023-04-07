@@ -10,8 +10,7 @@ const getCharById = (req, res) => {
         res.status(200).json(character);
       })
       .catch(error => {
-        console.error(error);
-        res.status(500).json({ "message": "Error fetching character from API"})
+        res.status(500).json({ error: error.message});
       })
 }
 

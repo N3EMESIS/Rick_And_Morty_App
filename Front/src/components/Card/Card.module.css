@@ -3,7 +3,6 @@
   color: #04ffff;
   border: 3px solid #00aeff;
   border-radius: 5px;
-  padding: 10px;
   text-align: center;
   box-shadow: 0px 0px 15px #00ffaa;
   background-color: rgb(0, 0, 0, 0);
@@ -72,20 +71,4 @@
   border: 3px solid hsl(298, 94%, 50%);
   box-shadow: 0px 0px 15px #e757ec;
   border-radius: 150px;
-}
-
-/************************************* Arrows *********************************************/
-
-.arrow{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #ccc;
-  text-align: center;
-  line-height: 50px;
-  font-size: 30px;
-  cursor: pointer;
 }
