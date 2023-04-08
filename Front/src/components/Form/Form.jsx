@@ -26,7 +26,8 @@ function Form({ login }){
 
     return(
         <form className={styles.form} onSubmit={handleSubmit} >
-            <h1 className={styles.title}>Iniciar Sesión</h1>
+            <h1 className={styles.title}>Bienvenido!!</h1>
+            <h2 className={styles.title}>Por favor inicie sesión para continuar</h2>
             <div className={styles.item}>
                 <label className={styles.label}>Username: </label>
                 <input type="text" name="username" placeholder="Nombre de usuario..." className={styles.input} value={userData.username} onChange={handleInputChange} />

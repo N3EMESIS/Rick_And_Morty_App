@@ -1,3 +1,8 @@
+@font-face{
+  font-family: "Another Danger";
+  src: url("../../another_danger/Another\ Danger\ -\ Demo.otf") format("truetype");
+}
+
 .divMain {
     display: flex;
     justify-content: space-between;
@@ -15,10 +20,23 @@
     align-items: center;
   }
 
+  .divMid{
+    display: flex;
+    flex-direction: center;
+  }
+
   .divRight {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+  }
+
+  .title {
+    color: #00e1ff;
+    text-shadow: 1px 1px #f705ff;
+    margin: 0;
+    padding: 3px;
+    font-family: "Another Danger";
   }
   
   .inputClass {

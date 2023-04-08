@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../Card/Card';
 import styles from "./Cards.module.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 class Cards extends Component {
   constructor(props){
@@ -42,7 +43,7 @@ class Cards extends Component {
       <div className={styles.cardsContainer}>
         {currentPage > 1 && (
             <button onClick={this.handleArrowLeft} className={styles.arrowLeft}>
-              Prev
+              <IoIosArrowBack />
             </button>
           )}
         {visibleChars.map(({name, species, gender, image, id}) => {
@@ -54,7 +55,7 @@ class Cards extends Component {
         })}
         {currentPage < totalPages && (
           <button onClick={this.handleArrowRight} className={styles.arrowRight}>
-            Next
+            <IoIosArrowForward />
           </button>
         )}
       </div>

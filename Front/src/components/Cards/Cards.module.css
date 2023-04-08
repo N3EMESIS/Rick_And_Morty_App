@@ -7,12 +7,19 @@
     margin: 1rem 0;
     padding: 0;
     margin-top: 100px;
+    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
   }
 
   .card {
     display: flex;
     justify-content: center;
     align-items: center;
+    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .arrowLeft {
@@ -21,11 +28,12 @@
     transform: translateY(-50%);
     z-index: 1;
     margin-top: 85px;
-    margin-left: 50px;
+    margin-left: 20px;
     background-color: rgb(0, 0, 0, 0);
     color: #04ffff;
     border: 2px solid #00aeff;
     box-shadow: 0px 0px 15px #00ffaa;
+    border-radius: 50%;
     font-size: 15px;
   }
   
@@ -35,10 +43,11 @@
     transform: translateY(-50%);
     z-index: 1;
     margin-top: 85px;
-    margin-right: 50px;
+    margin-right: 20px;
     background-color: rgb(0, 0, 0, 0);
     color: #04ffff;
     border: 2px solid #00aeff;
     box-shadow: 0px 0px 15px #00ffaa;
+    border-radius: 50%;
     font-size: 15px;
   }

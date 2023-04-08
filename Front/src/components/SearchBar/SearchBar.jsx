@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FaRandom} from "react-icons/fa";
+import { FaRandom } from "react-icons/fa";
 import styles from "./SearchBar.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -32,6 +32,9 @@ class SearchBarClass extends Component {
           <NavLink to="/about" className={styles.link} activeClassName={styles["link--active"]}>About</NavLink>
           <NavLink to="/" className={styles.link} >Logout</NavLink>
           <NavLink to="/favorites" className={styles.link}>Favorites</NavLink>
+        </div>
+        <div className={styles.divMid}>
+          <h1 className={styles.title}>Rick and Morty APP</h1>
         </div>
         <div className={styles.divRight}>
           <input

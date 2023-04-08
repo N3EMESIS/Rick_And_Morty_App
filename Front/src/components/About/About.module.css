@@ -9,13 +9,15 @@
     box-shadow: 0px 0px 15px #00ffaa;
     background-color: rgb(0, 0, 0, 0.1);
     margin: auto;
+    position: relative;
+    animation: border 3s linear infinite;
 }
 
 .title {
     color: #00e1ff;
     border: 1px solid #00aeff;
     box-shadow: 0px 0px 15px #00ffaa;
-    max-width: 150px;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,10 +31,52 @@
 }
 
 .link {
-    color: #ff00dd;
+    color: #ff00bf;
+    text-shadow: 1px 1px #000;
     text-decoration: none;
 }
 
 .p {
     text-shadow: 1px 1px #000;
+}
+
+.img{
+    width: 10%;
+    padding: 1px;
+    object-fit: cover;
+    margin: 1px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0px 0px 15px #e757ec;
+}
+
+.container{
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+@keyframes border {
+    0%{
+        border-color: #00aeff;
+        margin: 0;
+    }
+    25% {
+        border-color: #00aeff;
+        margin-right: 0;
+        margin-left: auto;
+    }
+    50% {
+        border-color: #00aeff;
+        margin-bottom: 0;
+        margin-top: auto;
+    }
+    75%{
+        border-color: #00aeff;
+        margin-right: auto;
+        margin-left: 0;
+    }
+    100%{
+        border-color: #00aeff;
+        margin-bottom: auto;
+        margin-top: 0;
+    }
 }

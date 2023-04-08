@@ -106,7 +106,6 @@ function App() {
       ) : (
         <>
           {showNav && <Nav onSearch={onSearch} handleRandom={handleRandom} characters={characters} logout={logout} />}
-          <hr />
           <Routes>
             <Route path="/" element={<Form login={login} />} />
             <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
