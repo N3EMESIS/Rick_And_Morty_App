@@ -14,7 +14,9 @@ class About extends Component {
         <img className={style.img} src={foto} alt="Foto mia"></img>
         <div className={style.container}>
           <p className={style.p}>¡Hola! Soy Lucas Idiart, el creador de esta aplicación. Me gusta mucho Rick and Morty, así que decidí hacer esta pequeña app para mostrar algunos de mis personajes favoritos. Espero que la disfrutes tanto como yo disfruté haciéndola. <strong>¡Gracias por usarla!</strong></p>
-          <span className={style.proyect}>Si quieren ver todos mis proyectos aquí les dejo el <a className={style.link} href="https://www.freecodecamp.org/espanol/Nemesis897">enlace</a></span>
+          <span className={style.proyect}>Si quieren ver todos mis proyectos aquí les dejo el <a className={style.link} href="https://www.freecodecamp.org/espanol/Nemesis897">enlace</a>.</span>
+          <br />
+          <span className={style.proyect}>Quieres que forme parte de tu equipo ? Sin ningun problema!!! Aqui les dejo el link a mi perfil de <a className={style.link} href="https://www.linkedin.com/in/lucas-idiart-b73637262/">Linkedin</a>.</span>
         </div>
       </div>
     )

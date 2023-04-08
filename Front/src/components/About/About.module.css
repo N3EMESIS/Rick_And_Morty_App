@@ -10,7 +10,7 @@
     background-color: rgb(0, 0, 0, 0.1);
     margin: auto;
     position: relative;
-    animation: border 3s linear infinite;
+    margin-top: 20px;
 }
 
 .title {
@@ -52,31 +52,4 @@
 
 .container{
     background-color: rgb(0, 0, 0, 0.5);
-}
-
-@keyframes border {
-    0%{
-        border-color: #00aeff;
-        margin: 0;
-    }
-    25% {
-        border-color: #00aeff;
-        margin-right: 0;
-        margin-left: auto;
-    }
-    50% {
-        border-color: #00aeff;
-        margin-bottom: 0;
-        margin-top: auto;
-    }
-    75%{
-        border-color: #00aeff;
-        margin-right: auto;
-        margin-left: 0;
-    }
-    100%{
-        border-color: #00aeff;
-        margin-bottom: auto;
-        margin-top: 0;
-    }
 }
