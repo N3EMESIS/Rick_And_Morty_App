@@ -8,6 +8,7 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import MusicList from "./components/MusicList/MusicList";
 
 const URL_BASE = "http://localhost:3001/rickandmorty"; // * SERVER MIO
 
@@ -101,6 +102,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: "25px" }}>
+      <MusicList />
       {isLoading ? (
         <ProgressBar onLoaded={onLoaded} /> 
       ) : (
