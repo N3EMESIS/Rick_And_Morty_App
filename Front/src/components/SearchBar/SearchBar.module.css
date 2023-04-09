@@ -15,9 +15,17 @@
     gap: 0;
   }
 
+  .heartIcon {
+    font-size: 12px;
+    color: #00e1ff;
+    box-shadow: 0px 0px 10px #ff00dd;
+    border-radius: 50%;
+  }
+
   .divLeft{
     display: flex;
     align-items: center;
+    gap: 10px;
   }
 
   .divMid{

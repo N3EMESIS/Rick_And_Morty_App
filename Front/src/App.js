@@ -102,7 +102,6 @@ function App() {
 
   return (
     <div className="App" style={{ padding: "25px" }}>
-      <MusicList />
       {isLoading ? (
         <ProgressBar onLoaded={onLoaded} /> 
       ) : (
@@ -117,6 +116,7 @@ function App() {
           </Routes>
         </>
       )}
+      <MusicList />
     </div>
   );
 }

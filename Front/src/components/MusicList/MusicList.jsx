@@ -1,54 +1,56 @@
 import React, { useState } from "react";
 import styles from "./MusicList.module.css";
-import { faPlay, faPause, faVolumenMute, faBackward, faForward } from "@fortawesome/fontawesome-free";
+import { faPlay, faPause, faVolumeMute, faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function MusicPlayer() {
     const [currentSong, setCurrentSong] = useState(0);
+    const [isMuted, setIsMuted] = useState(false);
+    const [volume, setVolume] = useState(1);
     const [songs, setSongs] = useState([
         {
             name: "Moonmen",
-            url: "./Music/1.mp3"
+            url: require("./Music/1.mp3")
         },
         {
             name: "Fathers and Daughters",
-            url: "./Music/2.mp3"
+            url: require("./Music/2.mp3")
         },
         {
             name: "Help me I'm gonna die",
-            url: "./Music/3.mp3"
+            url: require("./Music/3.mp3")
         },
         {
             name: "Summer & Thinkles Song",
-            url: "./Music/4.mp3"
+            url: require("./Music/4.mp3")
         },
         {
             name: "Glory to Glorzo",
-            url: "./Music/5.mp3"
+            url: require("./Music/5.mp3")
         },
         {
             name: "Human Music",
-            url: "./Music/6.mp3"
+            url: require("./Music/6.mp3")
         },
         {
             name: "Get Schwifty",
-            url: "./Music/7.mp3"
+            url: require("./Music/7.mp3")
         },
         {
             name: "Camping",
-            url: "./Music/8.mp3"
+            url: require("./Music/8.mp3")
         },
         {
             name: "Flu Hatin' Rap",
-            url: "./Music/9.mp3"
+            url: require("./Music/9.mp3")
         },
         {
             name: "Don't Look Back",
-            url: "./Music/10.mp3"
+            url: require("./Music/10.mp3")
         }
     ]);
 
-    function handlePrev (){
+    const handlePrev = () => {
         if(currentSong === 0){
             setCurrentSong(songs.length - 1);
         } else {
@@ -56,15 +58,20 @@ function MusicPlayer() {
         }
     };
 
-    function handleNext (){
+    const handleNext = () => {
         if(currentSong === songs.length - 1){
             setCurrentSong(0);
         } else {
             setCurrentSong(currentSong + 1);
         }
+
+        const audioPlayer = document.querySelector("audio");
+        if(audioPlayer.currentTime === audioPlayer.duration){
+            handleNext();
+        }
     }
 
-    function handlePlay (){
+    const handlePlay = () => {
         const audio = document.querySelector("audio");
         if(audio.paused){
             audio.play();
@@ -73,9 +80,49 @@ function MusicPlayer() {
         }
     }
 
+    const handleVolumeChange = (e) => {
+        const newVolume = parseFloat(e.target.value);
+        setVolume(newVolume);
+        const audio = document.querySelector("audio");
+        audio.volume = newVolume;
+    }
+
+    const handleVolumeMute = () => {
+        const audio = document.querySelector("audio");
+        if(isMuted){
+            audio.volume = volume;
+            setIsMuted(false);
+        } else {
+            audio.volume = 0;
+            setIsMuted(true);
+        }
+    }
+
     return (
         <div className={styles.mainDiv}>
-            <audio src={songs[currentSong].url} autoPlay controls />
+            <audio src={songs[currentSong].url} autoPlay onEnded={handleNext} />
+            <div className={styles.divP}>
+                <p className={styles.p}>Now playing: {songs[currentSong].name}</p>
+            </div>
+            <div className={styles.divButton}>
+                <button className={styles.button} onClick={handlePrev}>
+                    <FontAwesomeIcon icon={faBackward}/>
+                </button>
+                <button className={styles.button} onClick={handlePlay}>
+                    <FontAwesomeIcon icon={faPlay} />
+                </button>
+                <button className={styles.button} onClick={handlePlay}>
+                    <FontAwesomeIcon icon={faPause} />
+                </button>
+                <button className={styles.button} onClick={handleNext}>
+                    <FontAwesomeIcon icon={faForward} />
+                </button>
+                <button className={styles.button} onClick={handleVolumeMute}>
+                    <FontAwesomeIcon icon={faVolumeMute} />
+                </button>
+                <label htmlFor="volume"></label>
+                <input type="range" id="volume" name="volume" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange}></input>
+            </div>
         </div>
     )
 }
