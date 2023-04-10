@@ -48,7 +48,7 @@ class SearchBarClass extends Component {
           <button className={styles.buttonClass} onClick={this.handleSearch}>
             Agregar
           </button>
-          <button className={styles.buttonClass} onClick={this.handleRandom}>
+          <button className={styles.buttonClassR} onClick={this.handleRandom}>
             <FaRandom icon='fa-solid fa-shuffle' />
           </button>
         </div>

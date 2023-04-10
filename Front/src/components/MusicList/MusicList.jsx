@@ -5,9 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function MusicPlayer() {
     const [currentSong, setCurrentSong] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [volume, setVolume] = useState(1);
-    const [songs, setSongs] = useState([
+    const [songs] = useState([
         {
             name: "Moonmen",
             url: require("./Music/1.mp3")
@@ -73,11 +74,12 @@ function MusicPlayer() {
 
     const handlePlay = () => {
         const audio = document.querySelector("audio");
-        if(audio.paused){
-            audio.play();
-        } else {
+        if(isPlaying){
             audio.pause();
+        } else {
+            audio.play();
         }
+        setIsPlaying(!isPlaying);
     }
 
     const handleVolumeChange = (e) => {
@@ -106,13 +108,10 @@ function MusicPlayer() {
             </div>
             <div className={styles.divButton}>
                 <button className={styles.button} onClick={handlePrev}>
-                    <FontAwesomeIcon icon={faBackward}/>
+                    <FontAwesomeIcon icon={faBackward} />
                 </button>
                 <button className={styles.button} onClick={handlePlay}>
-                    <FontAwesomeIcon icon={faPlay} />
-                </button>
-                <button className={styles.button} onClick={handlePlay}>
-                    <FontAwesomeIcon icon={faPause} />
+                    <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                 </button>
                 <button className={styles.button} onClick={handleNext}>
                     <FontAwesomeIcon icon={faForward} />
@@ -120,8 +119,8 @@ function MusicPlayer() {
                 <button className={styles.button} onClick={handleVolumeMute}>
                     <FontAwesomeIcon icon={faVolumeMute} />
                 </button>
-                <label htmlFor="volume"></label>
-                <input type="range" id="volume" name="volume" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange}></input>
+                <label className={styles.input} htmlFor="volume"></label>
+                <input className={styles.input} type="range" id="volume" name="volume" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange}></input>
             </div>
         </div>
     )

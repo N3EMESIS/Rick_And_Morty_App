@@ -67,7 +67,7 @@ class Card extends Component {
     const showDetails = this.state.showDetails;
 
     return (
-      <div className={styles.card}>
+      <div className={`${styles.card} ${styles.animateborder}`}>
         <div>
           {this.state.isFav ? (
             <div className={styles.containButton}>
@@ -84,13 +84,21 @@ class Card extends Component {
           </button>
           <img className={styles.imagen} src={image} alt={name} onClick={this.handleClick} />
           <Link to={`/detail/${id}`} className={styles.link}>
-            <h2 className={styles.subTitle}>{name}</h2>
+            <h2 className={styles.title}>{name}</h2>
           </Link>
         </div>
         {showDetails && (
-          <div className={`${styles.cardDetails} ${showDetails ? 'show' : ''}`}>
-            <h2 className={styles.subTitle}>Especie: {species}</h2>
-            <h2 className={styles.subTitle}>Género: {gender}</h2>
+          <div className={`${styles.divDetail} ${showDetails ? 'show' : ''}`}>
+            <div className={styles.flexContainer}>
+              <h2 className={styles.subTitle}>Especie : </h2>
+              <div className={styles.flexChild}><span className={styles.subTitle}>{species}</span></div>
+            </div>
+            <div className={styles.flexContainer}>
+              <h2 className={styles.subTitle}>Gender : </h2>
+              <div className={styles.flexChild}>
+                <span className={styles.subTitle}>{gender}</span>
+              </div>
+            </div>
           </div>
         )}
       </div>

@@ -1,17 +1,20 @@
 const { User } = require("../DB_connection");
+const bcrypt = require("bcrypt");
 
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        if(!email || !password) return res.status(400).json({ message: "Faltan datos" });
+        const { username, password } = req.body;
+        if(!username || !password) return res.status(400).json({ message: "Faltan datos" });
 
-        const [user, created] = await User.findOrCreate({
-            where: { email } ,
-            defaults: { password }
+        const [user] = await User.findOne({
+            where: { username }
         });
         
         if(!user) return res.status(404).json({ message: "Usuario no encontrado" });
-        if(user.password !== password) return res.status(403).json({ message: "Contraseña incorrecta" });
+
+        const isPasswordValid = bcrypt.compareSync(password, user.password);
+
+        if(!isPasswordValid) return res.status(403).json({ message: "Contraseña incorrecta" });
 
         res.status(200).json({ access: true });
     }
