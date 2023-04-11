@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { validateUsername, validatePassword } from "./validation";
 import styles from "./Form.module.css";
+import RegisterForm from "./RegisterForm/RegisterForm";
 
 function Form({ login }){
     const [userData, setUserData] = useState({username: "", password: "",});
     const [errors, setErrors] = useState({username: "", password: "",});
+    const [registerForm, setRegisterFormVisible] = useState(false);
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -24,6 +26,11 @@ function Form({ login }){
         login(userData);
     }
 
+    function handleRegister(event){
+        event.preventDefault();
+        setRegisterFormVisible(true);
+    }
+
     return(
         <form className={styles.form} onSubmit={handleSubmit} >
             <h2 className={styles.title}>Inicie sesión para continuar</h2>
@@ -38,6 +45,8 @@ function Form({ login }){
                 {errors.password && <div className={styles.formError}>{errors.password}</div>}
             </div>
             <button className={styles.button}>Ingresar</button>
+            <button className={styles.button} onClick={handleRegister}>Registrarse</button>
+            {registerForm && <RegisterForm />}
         </form>
     )
 }
