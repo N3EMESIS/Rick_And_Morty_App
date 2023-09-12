@@ -13,10 +13,10 @@ server.use(cors());
 
 server.use("/rickandmorty", router);
 
-conn.sync({ force: true }).then(() => {
+// conn.sync({ force: true }).then(() => {
     server.listen(PORT, () => {
         console.log("Server raised in port " + PORT)
     });
-})
+// })
 
 module.exports = server;
